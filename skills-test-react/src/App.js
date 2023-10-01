@@ -2,29 +2,46 @@ import * as React from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import AccountMenu from './AccountMenu';
-import BasicForm from './BasicForm'
+import AccountMenu from './components/AccountMenu';
+import Grid from '@mui/material/Grid';
+import {
+	BrowserRouter as Router,
+	Routes,
+	Route,
+	NavLink
+} from "react-router-dom";
+
+//pages
+import Home from './pages/Home'
+import Todo from './pages/Todo'
 
 export default function App() {
-	const [openForm, setOpenForm] = React.useState(false);
-	const handleOnClick = (page) => {
-		console.log('open');
-		if(!openForm) { 
-			setOpenForm(true)
-		} else {
-			setOpenForm(false)
-		}
-	};
-  return (
-    <Container maxWidth="sm">
-	<AccountMenu onClick={handleOnClick} />
-	{openForm && <Basicorm />}
-      <Box sx={{ my: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          React Skills test
-        </Typography>
-      </Box>
-    </Container>
-  );
+	return (
+		<Router>
+			<Container>
+				<Box sx={{ flexGrow: 1 }}>
+					<Grid container spacing={2} sx={{ my: 1 }}>
+						<Grid item xs={8}>
+							<Box>
+								<NavLink className='text-link' to="/">
+									<Typography variant="h4" component="h1" gutterBottom>
+										React Skills Test
+									</Typography>
+								</NavLink>
+							</Box>
+						</Grid>
+						<Grid item xs={4}>
+							<AccountMenu />
+						</Grid>
+						<Grid item xs={12}>
+							<Routes>
+								<Route path="/" element={<Home />} />
+								<Route path="/todo" element={<Todo />} />
+							</Routes>
+						</Grid>
+					</Grid>
+				</Box>
+			</Container>
+		</Router>
+	);
 }

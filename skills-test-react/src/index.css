@@ -11,3 +11,52 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1 {
+  color: #222222;
+}
+
+h2 {
+  color: #444444;
+}
+
+p {
+  text-align: left;
+}
+
+input[type=text] {
+  width: 80%;
+  padding: 6px;
+  margin: 10px 10px 10px 0px;
+  box-sizing: border-box;
+  border: 2px solid #1976d2;
+  border-radius: 4px;
+  font-size: 24px;
+  vertical-align: middle;
+  color: #1976d2;
+}
+
+.text-link:link {
+  text-decoration: none;
+}
+
+.text-link:visited {
+  text-decoration: none;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+.text-link:active {
+  text-decoration: underline;
+}
+
+::placeholder {
+  color: #1976d2;
+  opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Edge 12-18 */
+  color: #1976d2;
+}
